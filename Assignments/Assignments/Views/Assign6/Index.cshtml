@@ -1,0 +1,15 @@
+﻿@model  List<Assignments.Models.Assign2.Employee>
+@using Assignments.CustomHtmlHelpers;
+
+@{
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+<div class="container ">
+    <h4>Employees list using Custom HTML Helper</h4>
+    <hr />  
+        <div class="table table-hover">
+            <div class="text-center">
+                @Html.Table(new List<Assignments.Models.Assign2.Employee>(Model))
+            </div>
+        </div>
+</div>

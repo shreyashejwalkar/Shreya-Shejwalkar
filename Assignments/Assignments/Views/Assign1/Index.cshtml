@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+@section featured
+{
+    <!--Displaying Greetings-->
+    <div class="container">
+        <div class="Greeting">
+            <div class="jumbotron">
+                <div class="display-4">
+                    @ViewBag.Greeting World
+                </div>
+                <p>We're going to have an exciting party.<br /></p>
+               
+                    @Html.ActionLink("RSVP Now", "RsvpForm", new object { }, new { @class = "btn btn-info" })
+                
+            </div>
+        </div>
+    </div>
+}

@@ -1,0 +1,85 @@
+﻿@model IPagedList<Assignments.Models.Assign5.DepartmentDetails>
+@using PagedList.Mvc;
+@using PagedList;
+
+@{
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+    <script src="~/Content/js/SelectAllCheckbox.js"></script>  
+</head>
+<body>
+    <!--Table to display Departments Detail-->
+    <div class="container">
+        <h4>Departments Details</h4>
+        <!--Search box-->
+        <div class="row">
+            <div class=" col-md-6">
+                <div class="search-container">
+                    @using (@Html.BeginForm("Index", "Assign9", FormMethod.Get))
+                    {
+                        <div class="form-inline">
+                            @Html.TextBox("search", "", new { placeholder = "Search", @class = "form-control  mr-2" })
+                            <input type="submit" value="Search" class="btn btn-search btn-info" />
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+        <!--Table-->
+        <div class="table-responsive m-t-20 no-wrap">
+            @using (Html.BeginForm("Delete", "Assign9", FormMethod.Post))
+            {
+                <table class="table table-hover">
+                    <tr>
+                        <th>
+                            <input type="checkbox" id="checkAll" /> &nbsp; Select All
+                        </th>
+                        <th>
+                            @Html.ActionLink("Department Name", "Index", new { sortBy = ViewBag.SortNameParameter, search = Request["search"] })
+
+                        </th>
+                        <th>
+                            @Html.ActionLink(" Department Location", "Index", new { sortBy = ViewBag.SortLocationParameter, search = Request["search"] })
+                        </th>
+                        <th>
+                            Employee Count
+                        </th>
+                        <th></th>
+                    </tr>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="employeeIdsToDelete" id="employeeIdsToDelete" value="@item.DepId" />
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DepName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DepLocation)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DepEmpCount)
+                            </td>
+                        </tr>
+                    }
+                </table>
+                <div>
+                    <button type="submit" id="btnSubmit" value="Delete" class="btn  btn-danger"><i class="fa fa-trash-o"></i> Delete</button>
+                 </div>
+            }          
+        </div>
+        <!--Pagination-->
+         <div class="text-center">
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page, search = Request.QueryString["search"], sortBy = Request["sortBy"] }), new PagedListRenderOptions() { Display = PagedListDisplayMode.IfNeeded, DisplayPageCountAndCurrentLocation = true })
+          </div>
+    </div>
+</body>
+</html>

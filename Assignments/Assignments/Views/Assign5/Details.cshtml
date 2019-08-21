@@ -1,0 +1,40 @@
+﻿@model Assignments.Models.Assign5.tblEmployee
+
+@{
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Employee Details</title>
+</head>
+<body>
+    <!--Table displaying Employee Details-->
+    <div class="container">
+        <h4>Employee Details</h4>
+        <div   id="addemp">
+            @Html.ActionLink("Back to List", "Index", new object { }, new { @class = "btn btn-info" })
+        </div>       
+        <table class="table table-hover">
+            <tr>
+                <td> @Html.DisplayNameFor(model => model.Name)</td>
+                <td> @Html.DisplayFor(model => model.Name)</td>
+            </tr>
+            <tr>
+                <td> @Html.DisplayNameFor(model => model.Gender)</td>
+                <td> @Html.DisplayFor(model => model.Gender)</td>
+            </tr>
+            <tr>
+                <td> @Html.DisplayNameFor(model => model.City)</td>
+                <td> @Html.DisplayFor(model => model.City)</td>
+            </tr>
+            <tr>
+                <td> @Html.DisplayNameFor(model => model.EmailId)</td>
+                <td> @Html.DisplayFor(model => model.EmailId)</td>
+            </tr>
+        </table>       
+    </div>   
+</body>
+</html>

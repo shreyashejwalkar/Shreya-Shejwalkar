@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Assignments.Models.Assign5.tblComment>
+
+@{
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Back To Form", "Create", new object { }, new { @class = "btn btn-info" })
+    </p>
+    <!--Partial view to display user comments-->
+    <div class="container">
+        <table class="table">
+            <li class="list-group-item active">User Comments</li>
+            @foreach (var item in Model)
+            {
+                @Html.Partial("_CommentForm", item)
+            }         
+        </table>     
+    </div>
+</body>
+</html>

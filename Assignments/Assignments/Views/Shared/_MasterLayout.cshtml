@@ -1,0 +1,79 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/css/bootstrap.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/css/Styles.css")" />
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+</head>
+<body>
+    <!--Navbar-->
+    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Shreya Shejwalkar</a>
+
+        <ul class="navbar-nav px-3">
+            <li class="nav-item text-nowrap">
+                <a class="navbar-brand" href="#">Assignments</a>
+            </li>
+        </ul>
+    </nav>
+    <!--sidebar-->
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                <div class="sidebar-sticky">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <span>@Html.ActionLink("Assignment 1", "Index", "Assign1", new object { }, new { @class = "nav-link" })</span>
+                        </li>
+                        <li class="nav-item">
+                            <span>@Html.ActionLink("Assignment 2", "Index", "Assign2", new object { }, new { @class = "nav-link" })</span>
+                        </li>
+                        <li class="nav-item">
+                            <span>@Html.ActionLink("Assignment 3 & 4", "GetAllEmpDetails", "Assign3", new object { }, new { @class = "nav-link" })</span>
+                        </li>
+                        <li class="nav-item">
+                            <span>@Html.ActionLink("Assignment 5 ", "Index", "Assign5", new object { }, new { @class = "nav-link" })</span>
+                        </li>
+                        <li class="nav-item">
+                            <span>@Html.ActionLink("Assignment 6", "Index", "Assign6", new object { }, new { @class = "nav-link" })</span>
+                        </li>
+                        <li class="nav-item">
+                            <span>@Html.ActionLink("Assignment 7", "Create", "Assign7", new object { }, new { @class = "nav-link" })</span>
+                        </li>
+                        <li class="nav-item">
+                            <span>@Html.ActionLink("Assignment 9 & 10", "Index", "Assign9", new object { }, new { @class = "nav-link" })</span>
+                        </li>
+                        <li class="nav-item">
+                            <span>@Html.ActionLink("Assignment 11", "Index", "Assign11", new object { }, new { @class = "nav-link" })</span>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <!--Render Section-->
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+                @RenderSection("featured", required: false)
+                <section class="content-wrapper main-content clear-fix">
+                    @RenderBody()
+                </section>
+            </main>
+        </div>
+    </div>
+    <!--Footer-->
+    <footer id="footer">
+        <div class="container">
+            <div class="copyright">
+                &copy; Copyright . All Rights Reserved
+            </div>
+        </div>
+    </footer>
+ </body>
+</html>  

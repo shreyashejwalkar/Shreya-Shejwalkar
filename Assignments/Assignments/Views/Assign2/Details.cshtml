@@ -1,0 +1,38 @@
+﻿@model Assignments.Models.Assign2.Employee
+
+@{
+    ViewBag.Title = "Employee Details";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+@section featured
+{
+    <!--Table to display user Details-->
+    <div class="container">
+        <h2 class="Details">Employee Details</h2>
+        <div  id="addemp">
+            @Html.ActionLink("Back to Employee List", "Index", new object { }, new { @class = "btn btn-info" })
+        </div>
+        <table class="table">
+            <tbody>
+                
+                <tr>
+                    <td>Name</td>
+                    <td>@Model.Name</td>
+                </tr>
+                <tr>
+                    <td>Gender</td>
+                    <td>@Model.Gender</td>
+                </tr>
+                <tr>
+                    <td>City</td>
+                    <td>@Model.City</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>@Model.EmailId</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+}
