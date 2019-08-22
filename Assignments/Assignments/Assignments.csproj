@@ -133,6 +133,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Common\RemoteClientServer.cs" />
     <Compile Include="Controllers\Assign11Controller.cs" />
     <Compile Include="Controllers\Assign1Controller.cs" />
     <Compile Include="Controllers\Assign2Controller.cs" />
